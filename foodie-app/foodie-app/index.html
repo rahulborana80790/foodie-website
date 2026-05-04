@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FLAVR — Food Ordering</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<!-- ============ NAVBAR ============ -->
+<nav class="navbar">
+  <div class="nav-logo">FLAVR</div>
+  <div class="nav-links">
+    <a href="#" class="active">Home</a>
+    <a href="#menu">Menu</a>
+    <a href="#about">About</a>
+  </div>
+  <div class="nav-right">
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Search dishes…" />
+      <span class="search-icon">⌕</span>
+    </div>
+    <button class="cart-btn" id="cartToggle">
+      🛒 <span class="cart-count" id="cartCount">0</span>
+    </button>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-content">
+    <p class="hero-eyebrow">Fresh · Fast · Flavourful</p>
+    <h1 class="hero-title">Cravings<br><em>Delivered.</em></h1>
+    <p class="hero-sub">Order restaurant-quality food and track it to your door in real time.</p>
+    <button class="cta-btn" onclick="document.getElementById('menu').scrollIntoView({behavior:'smooth'})">Explore Menu ↓</button>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-plate">🍔</div>
+    <div class="floating-badge b1">⭐ 4.9</div>
+    <div class="floating-badge b2">🚀 20 min</div>
+    <div class="floating-badge b3">🥗 100+ dishes</div>
+  </div>
+</section>
+
+<!-- ============ CATEGORIES ============ -->
+<section class="categories">
+  <div class="cat-track" id="catTrack">
+    <button class="cat-pill active" data-cat="all">All</button>
+    <button class="cat-pill" data-cat="burgers">🍔 Burgers</button>
+    <button class="cat-pill" data-cat="pizza">🍕 Pizza</button>
+    <button class="cat-pill" data-cat="sushi">🍣 Sushi</button>
+    <button class="cat-pill" data-cat="pasta">🍝 Pasta</button>
+    <button class="cat-pill" data-cat="salads">🥗 Salads</button>
+    <button class="cat-pill" data-cat="desserts">🍰 Desserts</button>
+    <button class="cat-pill" data-cat="drinks">🥤 Drinks</button>
+  </div>
+</section>
+
+<!-- ============ MENU GRID ============ -->
+<section class="menu-section" id="menu">
+  <h2 class="section-title">Today's Menu</h2>
+  <div class="menu-grid" id="menuGrid"></div>
+  <p class="no-results" id="noResults" style="display:none;">No dishes found. Try a different search!</p>
+</section>
+
+<!-- ============ CART SIDEBAR ============ -->
+<div class="cart-overlay" id="cartOverlay"></div>
+<aside class="cart-sidebar" id="cartSidebar">
+  <div class="cart-header">
+    <h2>Your Order</h2>
+    <button class="close-cart" id="closeCart">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <div class="cart-empty">
+      <div class="empty-icon">🛒</div>
+      <p>Your cart is empty</p>
+      <span>Add some delicious food!</span>
+    </div>
+  </div>
+  <div class="cart-footer" id="cartFooter" style="display:none;">
+    <div class="cart-summary">
+      <div class="summary-row"><span>Subtotal</span><span id="subtotal">₹0</span></div>
+      <div class="summary-row"><span>Delivery</span><span>₹40</span></div>
+      <div class="summary-row total"><span>Total</span><span id="totalPrice">₹0</span></div>
+    </div>
+    <button class="checkout-btn" id="checkoutBtn">Place Order →</button>
+  </div>
+</aside>
+
+<!-- ============ ORDER SUCCESS MODAL ============ -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="success-modal">
+    <div class="modal-icon">🎉</div>
+    <h2>Order Placed!</h2>
+    <p>Your food is being prepared and will arrive in <strong>20–30 minutes</strong>.</p>
+    <div class="tracker">
+      <div class="track-step active" id="ts1"><span>👨‍🍳</span><small>Preparing</small></div>
+      <div class="track-line"></div>
+      <div class="track-step" id="ts2"><span>🛵</span><small>On the way</small></div>
+      <div class="track-line"></div>
+      <div class="track-step" id="ts3"><span>🏠</span><small>Delivered</small></div>
+    </div>
+    <button class="modal-close-btn" id="modalClose">Back to Menu</button>
+  </div>
+</div>
+
+<!-- ============ ABOUT ============ -->
+<section class="about-section" id="about">
+  <div class="about-text">
+    <h2>Why <span>FLAVR</span>?</h2>
+    <p>We partner with the city's best chefs to bring restaurant-quality meals straight to you — always fresh, always fast.</p>
+    <div class="about-stats">
+      <div><strong>50+</strong><span>Restaurants</span></div>
+      <div><strong>100+</strong><span>Dishes</span></div>
+      <div><strong>4.9★</strong><span>Rating</span></div>
+    </div>
+  </div>
+  <div class="about-emoji-grid">
+    <span>🍔</span><span>🍕</span><span>🍣</span>
+    <span>🍝</span><span>🥗</span><span>🍰</span>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="footer-logo">FLAVR</div>
+  <p>© 2026 FLAVR. Made with ❤️ for food lovers.</p>
+  <div class="footer-links">
+    <a href="#">Privacy</a>
+    <a href="#">Terms</a>
+    <a href="#">Contact</a>
+  </div>
+</footer>0
+
+<script src="app.js"></script>
+</body>
+</html>
